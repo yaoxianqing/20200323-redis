@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.aaa.lee.redis</groupId>
+    <artifactId>20200323-redis</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--
+        springboot官方给出明确的标识:
+            1.5.9之前的所有版本不再维护，请抓紧时间升级
+            推荐使用2.x版本之后的springboot
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.5.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <!--
+            启动包:web-starter
+            mybatis的jar包:springboot-mybatis(是mybatis自己给springboot写的，并不是springboot官方自己写的)
+            mysql驱动包
+            德鲁伊的jar包
+        -->
+        <!--
+           springboot-starter-web
+       -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--
+            springboot-mybatis整合包
+        -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <!--
+            mysql的驱动包
+        -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+        <!--
+            druid连接池
+        -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.20</version>
+        </dependency>
+
+        <!--
+            redis的jar包以及jedis的jar包
+        -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.10.2</version>
+        </dependency>
+        <!--
+            redis和springboot的整合包
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <!--<exclusions>
+                <exclusion>
+                    <groupId>io.lettuce</groupId>
+                    <artifactId>lettuce-core</artifactId>
+                </exclusion>
+            </exclusions>-->
+        </dependency>
+        <!--
+                fastjson包
+            -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <!--
+            这个jar包的作用就是为了支持@ConfigurationProperties,在springboot项目中
+            只要去application.properties中读取数据，就必须要添加这个jar包
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <!--<build>
+        <plugins>
+            <plugin>
+                &lt;!&ndash;
+                    mybatis的逆向工程
+                        运行mybatis-generator:generate
+                        正向工程:
+                            是从java项目到达数据库
+                        逆向工程:
+                            由mysql的表直接生成实体类，mapper接口以及mapper.xml文件
+                    不要去使用插件版的逆向工程:
+                        因为插件是写在项目中，就意味着插件和项目就处于绑定状态
+                        而且在实际开发中，逆向工程是绝对不会让开发工作人员用的，只能由组长/经理使用
+
+                &ndash;&gt;
+            </plugin>
+        </plugins>
+    </build>-->
+
+</project>

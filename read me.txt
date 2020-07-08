@@ -1,0 +1,31 @@
+!!!!  今天是redis重点，redis又是每一个项目必须要用的东西  !!!!
+1.到公司之后，公司项目都会把项目部署在svn/git上
+    到公司之后需要从svn/git去下载项目然后导入到你的IDEA开发工具
+    把别人的项目导入到自己IDEA开发工具的时候，一定得注意了把.idea和.iml和target全部删除
+    .idea--->文件夹中所放的是我的配置(jdk配置，maven: ---> d:\\maven)
+
+2.把项目导入成功之后就可以正式开发了
+    把自己写的代码提交svn/git--->提交代码之前必须要先更新(提交冲突了！！！)
+    张三开发的是图书模块
+        --->创建了Book.java类--->写简单的代码--->提交到svn/git
+    李四开发的是图书类目模块
+        --->创建Book.java类(其实svn服务器上已经有了，但是李四不知道)--->直接把Book.java提交了
+        --->就会把svn服务器上的Book.java覆盖了
+
+    两个人同时去写一个类的时候---->经常出现一个问题叫做代码冲突(回滚代码--->回滚到上一个版本)
+
+3.在提交的时候必须要写注释
+    --->提交Book.java--->图书实体类提交
+    公司都会有这么一个配置(svn/git)--->不写注释无法提交代码
+
+4.在提交代码的时候不要去提交.idea文件夹，.iml文件，target文件夹
+
+5.我开发中用到的一个非常重要的插件:
+    ignore插件--->作用就是在提交代码的时候自动忽略.idea,.iml,target...
+    用法:
+        File--->*.ignore file--->ignore glob file--->选择Example user template
+        这个时候项目中会多出一个文件(.gitignore)--->里面所写的内容就是不需要提交到svn/git上内容
+        (导入别人项目的时候-->如果IDEA上没有安装ignore插件，就把.gitignore文件删除)
+
+6.让.idea,.iml,target...在IDEA中不显示
+    File --> Settings --> Editor --> File Types --> 找到ignore files and fonder --> 把不想看到的文件添加到末尾
